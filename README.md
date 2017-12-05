@@ -26,7 +26,7 @@
 - [Sean McPherson](https://github.com/SeanMcP) - React/Node
 - [Joseph Gordy](https://github.com/JGordy) - React/Node
 
-## Create-React-App READEME.md
+## Create-React-App Readme
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
