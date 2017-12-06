@@ -14,6 +14,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 // importing components and containers
 import BaseLayout from './components/BaseLayout';
 import Login from './components/Login';
+import Campaign from './components/Campaign';
+import CauseList from './components/CauseList';
 
 // const store = createStore(
 //     reducers,
@@ -28,6 +30,8 @@ ReactDOM.render(
       <Switch>
         <Route exact path='/' component={App} />
         <Route path='/login' component={Login} />
+        <Route path='/causes/:id' component={Campaign} />
+        <Route path='/causes' component={CauseList} />
       </Switch>
     </BaseLayout>
   </BrowserRouter>
