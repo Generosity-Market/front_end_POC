@@ -26,6 +26,9 @@
 - [Sean McPherson](https://github.com/SeanMcP) - React/Node
 - [Joseph Gordy](https://github.com/JGordy) - React/Node
 
+## setup
+To use this code, clone this repository (git clone https://github.com/Generosity-Market/front_end_POC.git) to a local directory. Use "yarn" in the terminal to install all dependencies. Then "yarn start" to start up the project. It will run on localhost:3000
+
 ## Create-React-App Readme
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
