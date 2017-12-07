@@ -12,10 +12,10 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 // importing components and containers
 import Home from './components/Home/Home';
-import BaseLayout from './components/BaseLayout';
-import Login from './components/Login';
-import Campaign from './components/Campaign';
-import CauseList from './components/CauseList';
+import BaseLayout from './components/BaseLayout/BaseLayout';
+import Login from './components/Login/Login';
+import Campaign from './components/Campaign/Campaign';
+import CauseList from './components/CauseList/CauseList';
 
 // const store = createStore(
 //     reducers,
