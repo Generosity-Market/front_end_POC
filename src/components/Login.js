@@ -10,7 +10,7 @@ export default class Login extends Component {
       padding: '1rem',
       margin: '1rem',
       width: '40%',
-    }
+    };
 
     return(
       <div className='Login'>
@@ -26,4 +26,4 @@ export default class Login extends Component {
       </div>
     )
   }
-}
+};
