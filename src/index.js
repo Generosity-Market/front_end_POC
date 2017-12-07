@@ -14,7 +14,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import App from './components/App';
 import BaseLayout from './components/BaseLayout/BaseLayout';
 import Login from './components/Login';
-import Campaign from './components/Campaign';
+import Campaign from './components/Campaign/Campaign';
 import CauseList from './components/CauseList';
 
 // const store = createStore(
