@@ -8,14 +8,14 @@ export default class CauseList extends Component {
     let causeStyle = {
       height: '3rem',
       margin: '3rem'
-    }
+    };
 
     let linkStyle = {
       border: '3px solid rgba(50,50,50,0.2)',
       borderRadius: '3px',
       padding: '1rem 1.5rem',
       textDecoration: 'none'
-    }
+    };
 
     return (
       <div className="CauseList">

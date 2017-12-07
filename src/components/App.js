@@ -3,7 +3,10 @@ import logo from '../logo.svg';
 import '../styles/App.css';
 
 class App extends Component {
+
+
   render() {
+    
     return (
       <div className="App">
         <h1>Home Component</h1>
@@ -17,6 +20,6 @@ class App extends Component {
       </div>
     );
   }
-}
+};
 
 export default App;

@@ -7,12 +7,12 @@ export default class BaseLayout extends Component {
 
     let navStyle = {
       padding: '1rem',
-    }
+    };
 
     let linkStyle = {
       textDecoration: 'none',
       padding: '1rem'
-    }
+    };
 
     return (
       <div className="Baselayout" style={navStyle}>
