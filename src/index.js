@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/index.css';
+import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
 // additional imports from react-router-dom and redux
@@ -11,7 +11,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 // import reducers from './reducers/reducers';
 
 // importing components and containers
-import App from './components/App';
+import Home from './components/Home/Home';
 import BaseLayout from './components/BaseLayout';
 import Login from './components/Login';
 import Campaign from './components/Campaign';
@@ -28,7 +28,7 @@ ReactDOM.render(
   <BrowserRouter>
     <BaseLayout>
       <Switch>
-        <Route exact path='/' component={App} />
+        <Route exact path='/' component={Home} />
         <Route path='/login' component={Login} />
         <Route path='/causes/:id' component={Campaign} />
         <Route path='/causes' component={CauseList} />
