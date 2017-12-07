@@ -13,9 +13,9 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 // importing components and containers
 import App from './components/App';
 import BaseLayout from './components/BaseLayout/BaseLayout';
-import Login from './components/Login';
+import Login from './components/Login/Login';
 import Campaign from './components/Campaign/Campaign';
-import CauseList from './components/CauseList';
+import CauseList from './components/CauseList/CauseList';
 
 // const store = createStore(
 //     reducers,
