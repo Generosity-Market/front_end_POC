@@ -28,8 +28,7 @@ export default class CauseList extends Component {
       padding: '0.75rem 0rem',
       textDecoration: 'none',
       flexBasis: '30%',
-      textAlign: 'center',
-      verticalAlign: 'center'
+      textAlign: 'center'
     };
 
     let displayedStuff;
@@ -48,6 +47,10 @@ export default class CauseList extends Component {
       <div className="CauseList">
 
         <h1 style={{textAlign: 'center'}}>Cause List Component</h1>
+
+        <div className='add_cause_link' style={{display: 'flex', justifyContent: 'center'}}>
+          <Link to='/AddCampaign' style={{ border: '1px solid lightgray', padding: '0.75rem 0rem', textDecoration: 'none', borderRadius: '3px', color: 'darkslategray', flexBasis: '15%', textAlign: 'center', verticalAlign: 'center'}}>Add Your Cause</Link>
+        </div>
 
         {displayedStuff}
 
