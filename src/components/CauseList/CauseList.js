@@ -16,7 +16,6 @@ export default class CauseList extends Component {
   render() {
 
     let causeStyle = {
-      // backgroundColor: 'lightgray',
       height: '3rem',
       margin: '3rem',
       display: 'flex'
