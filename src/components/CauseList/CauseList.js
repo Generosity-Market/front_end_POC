@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import causeNames from '../../data.js';
+import './CauseList.css';
 
 export default class CauseList extends Component {
   constructor(props) {
@@ -21,21 +22,11 @@ export default class CauseList extends Component {
       display: 'flex'
     };
 
-    let linkStyle = {
-      border: '3px solid rgba(50,50,50,0.2)',
-      borderRadius: '3px',
-      color: 'darkslategray',
-      padding: '0.75rem 0rem',
-      textDecoration: 'none',
-      flexBasis: '30%',
-      textAlign: 'center'
-    };
-
     let displayedStuff;
     if (this.state.causes) {
       displayedStuff = this.state.causes.map((cause) => {
         return <div key={cause.id} className="causes" style={causeStyle}>
-                <Link to={`/causes/${cause.id}`} style={linkStyle}>{cause.name}</Link>
+                <Link to={`/causes/${cause.id}`}>{cause.name}</Link>
               </div>;
       })
     } else {
