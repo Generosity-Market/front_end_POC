@@ -1,42 +1,58 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import causeNames from '../../data.js';
+
 export default class CauseList extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      causes: causeNames,
+      message: "there are no causes"
+    }
+  }
 
   render() {
 
     let causeStyle = {
       height: '3rem',
-      margin: '3rem'
+      margin: '3rem',
+      display: 'flex'
     };
 
     let linkStyle = {
       border: '3px solid rgba(50,50,50,0.2)',
       borderRadius: '3px',
-      padding: '1rem 1.5rem',
-      textDecoration: 'none'
+      color: 'darkslategray',
+      padding: '0.75rem 0rem',
+      textDecoration: 'none',
+      flexBasis: '30%',
+      textAlign: 'center'
     };
+
+    let displayedStuff;
+    if (this.state.causes) {
+      displayedStuff = this.state.causes.map((cause) => {
+        return <div key={cause.id} className="causes" style={causeStyle}>
+                <Link to={`/causes/${cause.id}`} style={linkStyle}>{cause.name}</Link>
+              </div>;
+      })
+    } else {
+      displayedStuff = this.state.message;
+    }
+
 
     return (
       <div className="CauseList">
 
         <h1 style={{textAlign: 'center'}}>Cause List Component</h1>
 
-        <div className="causes" style={causeStyle}>
-          <Link to='/causes/1' style={linkStyle}>Cause 1</Link>
+        <div className='add_cause_link' style={{display: 'flex', justifyContent: 'center'}}>
+          <Link to='/AddCampaign' style={{ border: '1px solid lightgray', padding: '0.75rem 0rem', textDecoration: 'none', borderRadius: '3px', color: 'darkslategray', flexBasis: '15%', textAlign: 'center', verticalAlign: 'center'}}>Add Your Cause</Link>
         </div>
 
-        <div className="causes" style={causeStyle}>
-          <Link to='/causes/2' style={linkStyle}>Cause 2</Link>
-        </div>
-
-        <div className="causes" style={causeStyle}>
-          <Link to='/causes/3' style={linkStyle}>Cause 3</Link>
-        </div>
-
-        <div className="causes" style={causeStyle}>
-          <Link to='/causes/4' style={linkStyle}>Cause 4</Link>
-        </div>
+        {displayedStuff}
 
       </div>
     )

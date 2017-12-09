@@ -16,6 +16,7 @@ import BaseLayout from './components/BaseLayout/BaseLayout';
 import Login from './components/Login/Login';
 import Campaign from './components/Campaign/Campaign';
 import CauseList from './components/CauseList/CauseList';
+import AddCampaign from './components/AddCampaign/AddCampaign';
 
 // const store = createStore(
 //     reducers,
@@ -30,8 +31,9 @@ ReactDOM.render(
       <Switch>
         <Route exact path='/' component={Home} />
         <Route path='/login' component={Login} />
-        <Route path='/causes/:id' component={Campaign} />
+        <Route exact path='/causes/:id' component={Campaign} />
         <Route path='/causes' component={CauseList} />
+        <Route path='/AddCampaign' component={AddCampaign} />
       </Switch>
     </BaseLayout>
   </BrowserRouter>
