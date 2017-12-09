@@ -14,7 +14,7 @@ export default class Login extends Component {
 
     return(
       <div className='Login'>
-        <h1 style={{textAlign: "center"}}>Login Component</h1>
+        <h1 style={{textAlign: "center"}}>Login or Signup</h1>
 
         <form style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
           <input style={inputStyle} type='text' name='firstName' placeholder='First Name'/>

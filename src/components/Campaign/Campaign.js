@@ -61,7 +61,7 @@ export default class Campaign extends Component {
     return (
       <div className="Campaign">
 
-        <h1 style={{textAlign: 'center'}}>Campaign Component</h1>
+        <h1 style={{textAlign: 'center'}}>{this.state.name}</h1>
         <p>{this.state.name} <span style={{color: 'red'}}>id: {this.state.id}</span> details</p>
 
         <div className="campaignBanner" style={{display: 'flex', justifyContent: 'space-around', backgroundColor: '#3b653d', color: 'white', position: 'sticky', top: '0', zIndex: '1'}}>
@@ -69,7 +69,7 @@ export default class Campaign extends Component {
           <p>Envelope Amount: {envelopeNumber - 1}</p>
         </div>
 
-        <div className="envelopeDisplay" style={{display: 'flex', flexFlow: 'row wrap', width: '90%', margin: '4rem auto', justifyContent: 'space-around', textAlign: 'center'}}>
+        <div className="envelopeDisplay" style={{display: 'flex', flexFlow: 'row wrap', width: '90%', margin: '3rem auto', justifyContent: 'space-around', textAlign: 'center'}}>
           {envelopeDisplay}
         </div>
 

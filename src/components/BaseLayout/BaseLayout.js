@@ -16,6 +16,7 @@ export default class BaseLayout extends Component {
 
     return (
       <div className="Baselayout" style={navStyle}>
+      
         <Link to="/" style={linkStyle}>Home</Link>
         <Link to="/login" style={linkStyle}>Login</Link>
         <Link to="/causes" style={linkStyle}>Causes</Link>
