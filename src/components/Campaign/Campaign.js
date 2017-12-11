@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import causeNames from '../../data.js';
 import './Campaign.css';
+import CampaignNav from '../CampaignNav/CampaignNav';
 
 export default class Campaign extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ export default class Campaign extends Component {
     window.scroll({
       behavior: 'smooth',
       left: 0,
-      top: element.offsetTop
+      top: element.offsetTop - 100
     });
   };
 
@@ -77,7 +78,7 @@ export default class Campaign extends Component {
 
       } else if (cause.name === 'h3') {
 
-        return <div key={index} className='donationHeader' style={{flexBasis: '100%', textAlign: 'left', color: 'gray', margin: '0.5rem', fontWeight: 'bold', letterSpacing: '0.1rem'}}>${cause.envelopeNumber} - ${cause.envelopeNumber + 20}</div>;
+        return <div key={index} className='donationHeader' id={`${cause.envelopeNumber}-${cause.envelopeNumber + 20}`} style={{flexBasis: '100%', textAlign: 'left', color: 'gray', margin: '0.5rem', fontWeight: 'bold', letterSpacing: '0.1rem'}}>${cause.envelopeNumber} - ${cause.envelopeNumber + 20}</div>;
 
       } else {
 
@@ -91,15 +92,23 @@ export default class Campaign extends Component {
       <div className="Campaign">
 
         <h1 style={{textAlign: 'center'}}>{this.state.name}</h1>
-        <p>{this.state.name} <span style={{color: 'red'}}>id: {this.state.id}</span> details</p>
+        {/*<p>{this.state.name} <span style={{color: 'red'}}>id: {this.state.id}</span> details</p>*/}
 
-        <div className="campaignBanner" style={{display: 'flex', justifyContent: 'space-around', backgroundColor: '#3b653d', color: 'white', position: 'sticky', top: '0', zIndex: '1'}}>
-          <p>Amount ro raise: ${this.state.amount}</p>
-          <p>Envelope Amount: {envelopeNumber - 1}</p>
+        <div className="campaignBanner" style={{display: 'flex', justifyContent: 'space-around', backgroundColor: '#3b653d', color: 'white', position: 'sticky', top: '0', zIndex: '1', textAlign: 'center'}}>
+          <p style={{letterSpacing: '0.1rem', fontSize: '20px'}}>Amount ro raise: <br/>${this.state.amount}</p>
+          <p style={{letterSpacing: '0.1rem', fontSize: '20px'}}>Envelope Amount: <br/>{envelopeNumber - 1}</p>
         </div>
 
-        <div className="envelopeDisplay" style={{display: 'flex', flexFlow: 'row wrap', width: '90%', margin: '2rem auto', justifyContent: 'space-around', textAlign: 'center'}}>
-          {envelopeDisplay}
+        <div className='campaign_container' style={{display: 'flex', width: '100%', margin: '0rem auto', justifyContent: 'center'}}>
+
+          <div className="envelopeDisplay" style={{display: 'flex', flexFlow: 'row wrap', width: '80%', margin: '2rem 0rem', justifyContent: 'space-around', textAlign: 'center'}}>
+            {envelopeDisplay}
+          </div>
+
+          <div className='campaignNav' style={{flexBasis: '10%'}}>
+            <CampaignNav envelopes={envelopeDisplay} scrollTo={this.scrollTo} />
+          </div>
+
         </div>
 
         <div className="top_button" onClick={() => this.scrollTo(document.getElementById('main_header'))}>

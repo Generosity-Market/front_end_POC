@@ -1,0 +1,27 @@
+.CampaignNav {
+  /*background-color: lightgray;*/
+  min-height: 10%;
+  margin-left: 1rem;
+  position: sticky;
+  top: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+.campaignLinks {
+  background-color: #3b653d;
+  border-radius: 20px;
+  color: rgba(255,255,255,0.9);
+  margin: 0.1rem;
+  padding: 0.3rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.campaignLinks:hover {
+  cursor: pointer;
+  background-color: lightgray;
+  color: #3b653d;
+  transition: background-color 0.3s, color 0.3s;
+}
