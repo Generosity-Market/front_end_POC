@@ -13,6 +13,14 @@ export default class Campaign extends Component {
     };
   };
 
+  scrollTo = (element) => {
+    window.scroll({
+      behavior: 'smooth',
+      left: 0,
+      top: element.offsetTop
+    });
+  };
+
   componentDidMount() {
     let id = this.props.match.params.id;
 
@@ -22,7 +30,7 @@ export default class Campaign extends Component {
           id: causeNames[i].id,
           name: causeNames[i].name,
           amount: causeNames[i].amount
-        })
+        });
       }
     }
   };
@@ -36,26 +44,47 @@ export default class Campaign extends Component {
     while (amount > 0) {
 
       if (envelopeNumber % 21 === 0) {
+
         envelopeContainer.push({amount: amount, envelopeNumber: envelopeNumber})
         envelopeContainer.push({name: "lineBreak"});
         amount = amount - envelopeNumber;
         envelopeNumber++;
+
+      } else if ((envelopeNumber === 1) || (envelopeNumber % 21 === 1)) {
+
+        envelopeContainer.push({name: 'h3', envelopeNumber: envelopeNumber});
+        envelopeContainer.push({envelopeNumber: envelopeNumber, amount: amount});
+        amount = amount - envelopeNumber;
+        envelopeNumber++;
+
       } else {
+
         envelopeContainer.push({amount: amount, envelopeNumber: envelopeNumber})
         amount = amount - envelopeNumber;
         envelopeNumber++;
+
       };
     };
 
     let envelopeDisplay = envelopeContainer.map((cause, index) => {
 
       if (cause.name === "lineBreak") {
-        return <div key={index} className="lineBreak" style={{flexBasis: '100%'}}><hr/><br/></div>
+
+        return <div key={index} className="lineBreak" style={{flexBasis: '100%', margin: '1rem 0rem 0rem'}}>
+                <hr/>
+                <br/>
+               </div>;
+
+      } else if (cause.name === 'h3') {
+
+        return <div key={index} className='donationHeader' style={{flexBasis: '100%', textAlign: 'left', color: 'gray', margin: '0.5rem', fontWeight: 'bold', letterSpacing: '0.1rem'}}>${cause.envelopeNumber} - ${cause.envelopeNumber + 20}</div>;
+
       } else {
+
         return <div key={index} className="envelope" style={{ margin: '0.25rem'}}>
                 <h3 style={{margin: '0.6rem 0rem'}}>${cause.envelopeNumber}</h3>
                </div>;
-      };
+      }; // unreachable code warning on this line?
     });
 
     return (
@@ -69,8 +98,12 @@ export default class Campaign extends Component {
           <p>Envelope Amount: {envelopeNumber - 1}</p>
         </div>
 
-        <div className="envelopeDisplay" style={{display: 'flex', flexFlow: 'row wrap', width: '90%', margin: '3rem auto', justifyContent: 'space-around', textAlign: 'center'}}>
+        <div className="envelopeDisplay" style={{display: 'flex', flexFlow: 'row wrap', width: '90%', margin: '2rem auto', justifyContent: 'space-around', textAlign: 'center'}}>
           {envelopeDisplay}
+        </div>
+
+        <div className="top_button" onClick={() => this.scrollTo(document.getElementById('main_header'))}>
+          <i className="material-icons">arrow_upward</i>
         </div>
 
       </div>
