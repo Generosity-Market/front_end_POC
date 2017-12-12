@@ -1,27 +1,32 @@
 .CampaignNav {
-  /*background-color: lightgray;*/
+  /*border-right: 3px solid #3b653d;*/
   min-height: 10%;
-  margin-left: 1rem;
+  margin-left: 2rem;
   position: sticky;
   top: 90px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  padding: 1rem;
+  justify-content: space-between;
+  padding: 1rem 0rem 0rem;
+  width: 75%;
 }
 
 .campaignLinks {
-  background-color: #3b653d;
-  border-radius: 20px;
-  color: rgba(255,255,255,0.9);
-  margin: 0.1rem;
-  padding: 0.3rem;
-  transition: background-color 0.3s, color 0.3s;
+  background-color: transparent;
+  /*border-radius: 20px;*/
+  color: rgba(59, 101, 61, 0.3);
+  letter-spacing: 0.01rem;
+  /*margin: 0.1rem;*/
+  padding: 0.3rem 0.5rem;
+  text-align: right;
+  transition: background-color 0.3s, color 0.3s, border-right 0.3s, transform 0.3s;
 }
 
 .campaignLinks:hover {
+  background-color: rgba(220,220,220,0.5);
+  border-right: 2px solid rgba(59, 101, 61, 1);
   cursor: pointer;
-  background-color: lightgray;
-  color: #3b653d;
-  transition: background-color 0.3s, color 0.3s;
+  color: rgba(59, 101, 61, 1);
+  transform: translateX(-7px);
+  transition: background-color 0.3s, color 0.3s, border-right 0.3s, transform 0.3s;
 }
