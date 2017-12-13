@@ -1,0 +1,17 @@
+.causes a {
+  border: 3px solid rgba(50,50,50,0.2);
+  border-radius: 3px;
+  color: darkslategray;
+  padding: 0.75rem 0rem;
+  text-decoration: none;
+  flex-basis: 30%;
+  text-align: center;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+
+.causes a:hover {
+  background-color: #3b653d;
+  color: rgba(255, 255, 255, 0.9);
+  transition: background-color 0.4s, color 0.4s;
+}

@@ -1,0 +1,58 @@
+hr {
+  height: 2px;
+  /*background-color: #ed1d61;*/
+  background-color: lightgray;
+  border:none;
+  flex-basis: 100%;
+}
+
+.envelope {
+  border: 3px solid #254251;
+  color: #62727b;
+  border-radius: 3px;
+  flex-basis: 12%;
+  font-family: sans-serif;
+  letter-spacing: 0.1rem;
+  margin: 0.25rem;
+  text-align: center;
+  transition: box-shadow 0.4s, color 0.4s, background-color 0.4s, transform 0.4s;
+}
+
+.envelope:hover {
+  background-color: #254251;
+  color: white;
+  box-shadow: 8px 11px 8px 2px rgba(100, 100, 100, 0.3);
+  transform: scale(1.15);
+  transition: box-shadow 0.4s, color 0.4s, background-color 0.4s, transform 0.4s;
+}
+
+.top_button {
+  bottom: -1.5rem;
+  position: fixed;
+  right: 0.75rem;
+  transition: bottom 0.3s;
+}
+
+.top_button i {
+  align-items: center;
+  background-color: lightgray;
+  border-radius: 3px;
+  color: #254251;
+  display: flex;
+  justify-content: center;
+  padding: 0.75rem 0.75rem 2rem;
+  text-decoration: none;
+  transition: color 0.3s, background-color 0.3s, padding 0.3s;
+}
+
+.top_button:hover {
+  bottom: -0.7rem;
+  transition: bottom 0.3s;
+}
+
+.top_button:hover i {
+  background-color: #3b653d;
+  color: white;
+  padding: 0.75rem 0.75rem 2rem;
+  transition: color 0.3s, background-color 0.3s, padding 0.3s;
+}

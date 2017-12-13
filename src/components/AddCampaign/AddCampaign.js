@@ -21,7 +21,7 @@ constructor(props) {
 
     return (
       <div className="AddCampaign">
-        <h1 style={{textAlign: 'center'}}>Add Campaign Component</h1>
+        <h1 style={{textAlign: 'center'}}>Add your Campaign</h1>
 
         <form style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
           <input style={inputStyle} type='text' name='cause' placeholder='Name your cause'/>

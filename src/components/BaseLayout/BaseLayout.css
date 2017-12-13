@@ -1,0 +1,8 @@
+.Baselayout a {
+  color: black;
+}
+
+.Baselayout a:hover {
+  color: #3b653d;
+  border-bottom: 0.25rem solid #3b653d;
+}
