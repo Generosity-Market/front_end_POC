@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import causeNames from '../../data.js';
 import './Campaign.css';
 import CampaignNav from '../CampaignNav/CampaignNav';
+import Cart from '../../containers/Cart/Cart';
 
 export default class Campaign extends Component {
   constructor(props) {
@@ -10,7 +11,9 @@ export default class Campaign extends Component {
     this.state = {
       id: '',
       name: '',
-      amount: 0
+      amount: 0,
+      cart: [],
+      cartTotal: 0
     };
   };
 
@@ -20,6 +23,22 @@ export default class Campaign extends Component {
       left: 0,
       top: element.offsetTop - 100
     });
+  };
+
+  addToCart = (amount) => {
+
+    this.state.cart.push(amount);
+
+    let cart = this.state.cart;
+    let cartTotal;
+
+    function getSum(total, num) {
+      return total + num;
+    };
+
+    cartTotal = cart.reduce(getSum);
+    this.setState({cartTotal: cartTotal})
+
   };
 
   componentDidMount() {
@@ -82,10 +101,10 @@ export default class Campaign extends Component {
 
       } else {
 
-        return <div key={index} className="envelope" style={{ margin: '0.25rem'}}>
+        return <div key={index} className="envelope" style={{ margin: '0.25rem'}} onClick={() => this.addToCart(cause.envelopeNumber)}>
                 <h3 style={{margin: '0.6rem 0rem'}}>${cause.envelopeNumber}</h3>
                </div>;
-      }; // unreachable code warning on this line?
+      }; // unreachable code warning on this line??
     });
 
     return (
@@ -97,6 +116,10 @@ export default class Campaign extends Component {
         <div className="campaignBanner" style={{display: 'flex', justifyContent: 'space-around', backgroundColor: '#3b653d', color: 'white', position: 'sticky', top: '0', zIndex: '1', textAlign: 'center'}}>
           <p style={{letterSpacing: '0.1rem', fontSize: '20px'}}>Amount ro raise: <br/>${this.state.amount}</p>
           <p style={{letterSpacing: '0.1rem', fontSize: '20px'}}>Envelope Amount: <br/>{envelopeNumber - 1}</p>
+        </div>
+
+        <div className="cart-container">
+          <Cart cart={this.state.cart} envelopes={envelopeDisplay} cartTotal={this.state.cartTotal}/>
         </div>
 
         <div className='campaign_container' style={{display: 'flex', width: '100%', margin: '0rem auto', justifyContent: 'center'}}>

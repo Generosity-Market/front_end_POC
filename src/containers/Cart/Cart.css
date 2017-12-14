@@ -1,0 +1,17 @@
+.Cart {
+  background-color: aliceblue;
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  padding: 1rem;
+}
+
+.item-container {
+  display: flex;
+}
+
+.cart-items {
+  margin-left: 1rem;
+  font-size: 20px;
+}
