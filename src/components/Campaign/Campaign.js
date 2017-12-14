@@ -25,20 +25,41 @@ export default class Campaign extends Component {
     });
   };
 
+  // computeCartTotal = (array) => {
+  //   console.log(this.state.cart);
+  // }
+
   addToCart = (amount) => {
 
-    this.state.cart.push(amount);
-
+    let index = this.state.cart.indexOf(amount);
     let cart = this.state.cart;
-    let cartTotal;
+    let Total;
+
+    if (index !== -1) {
+      if (this.state.cart.length === 1) {
+        this.setState({
+          cart: []
+        });
+        // cart = [];
+      } else {
+        this.state.cart.splice(index, 1);
+      }
+    } else {
+      this.state.cart.push(amount);
+    }
+
 
     function getSum(total, num) {
       return total + num;
     };
+    Total = cart.reduce(getSum);
+    this.setState({cartTotal: Total})
 
-    cartTotal = cart.reduce(getSum);
-    this.setState({cartTotal: cartTotal})
+    // this.setState({
+    //   cartTotal: 0
+    // })
 
+    // computeCartTotal(cart)
   };
 
   componentDidMount() {
