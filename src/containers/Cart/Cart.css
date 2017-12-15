@@ -12,9 +12,16 @@
 }
 
 .cart-items {
-
   margin-left: 1rem;
   font-size: 20px;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.cart-items p:hover {
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s, background-color 0.3s;
 }
 
 .cart-items p {

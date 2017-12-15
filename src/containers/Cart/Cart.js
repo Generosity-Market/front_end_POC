@@ -4,7 +4,7 @@ import './Cart.css';
 export default class Cart extends Component {
 
   render() {
-    console.log(this.props.removeFromCart);
+    // console.log(this.props.removeFromCart);
     let cartTotal;
 
     if (this.props.cart.length === 0) {
