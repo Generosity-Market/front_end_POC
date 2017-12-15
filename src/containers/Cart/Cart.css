@@ -12,6 +12,13 @@
 }
 
 .cart-items {
+
   margin-left: 1rem;
   font-size: 20px;
+}
+
+.cart-items p {
+  background-color: lightgray;
+  border-radius: 3px;
+  padding: 0.25rem 0.3rem;
 }
