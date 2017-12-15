@@ -4,6 +4,7 @@ import './Cart.css';
 export default class Cart extends Component {
 
   render() {
+    console.log(this.props.removeFromCart);
     let cartTotal;
 
     if (this.props.cart.length === 0) {
@@ -14,7 +15,7 @@ export default class Cart extends Component {
 
     let cartItems = this.props.cart.map((item, index) => {
 
-      return <div key={index} className="cart-items">
+      return <div key={index} className="cart-items" onClick={() => this.props.removeFromCart(item)}>
               <p>{item}</p>
              </div>
     });

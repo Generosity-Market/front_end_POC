@@ -25,35 +25,41 @@ export default class Campaign extends Component {
     });
   };
 
-  // computeCartTotal = (array) => {
-  //   console.log(this.state.cart);
-  // }
-
   addToCart = (amount) => {
 
+    let clickedButton = document.querySelector(`.amount${amount}`);
     let index = this.state.cart.indexOf(amount);
     let cart = this.state.cart;
     let Total;
 
     if (index !== -1) {
-      if (this.state.cart.length === 1) {
-        this.setState({
-          cart: []
-        });
-        // cart = [];
-      } else {
-        this.state.cart.splice(index, 1);
-      }
+        if (this.state.cart.length === 1) {
+          this.setState({
+            cart: []
+          });
+          clickedButton.style.backgroundColor = '';
+          clickedButton.style.transform = '';
+          clickedButton.style.color = '';
+          clickedButton.setAttribute('className', `envelope amount${amount}`);
+        } else {
+          this.state.cart.splice(index, 1);
+          clickedButton.style.backgroundColor = '';
+          clickedButton.style.transform = '';
+          clickedButton.style.color = '';
+          clickedButton.setAttribute('className', `envelope amount${amount}`);
+        };
     } else {
-      this.state.cart.push(amount);
-    }
-
+        this.state.cart.push(amount);
+        clickedButton.style.backgroundColor = '#3b653d';
+        clickedButton.style.transform = 'scale(0.85)';
+        clickedButton.style.color = 'white';
+    };
 
     function getSum(total, num) {
       return total + num;
     };
     Total = cart.reduce(getSum);
-    this.setState({cartTotal: Total})
+    this.setState({cartTotal: Total});
 
     // this.setState({
     //   cartTotal: 0
@@ -112,8 +118,8 @@ export default class Campaign extends Component {
       if (cause.name === "lineBreak") {
 
         return <div key={index} className="lineBreak" style={{flexBasis: '100%', margin: '1rem 0rem 0rem'}}>
-                <hr/>
-                <br/>
+                  <hr/>
+                  <br/>
                </div>;
 
       } else if (cause.name === 'h3') {
@@ -122,7 +128,7 @@ export default class Campaign extends Component {
 
       } else {
 
-        return <div key={index} className="envelope" style={{ margin: '0.25rem'}} onClick={() => this.addToCart(cause.envelopeNumber)}>
+        return <div key={index} className={`envelope amount${cause.envelopeNumber}`} style={{ margin: '0.25rem'}} onClick={() => this.addToCart(cause.envelopeNumber)}>
                 <h3 style={{margin: '0.6rem 0rem'}}>${cause.envelopeNumber}</h3>
                </div>;
       }; // unreachable code warning on this line??
@@ -140,7 +146,7 @@ export default class Campaign extends Component {
         </div>
 
         <div className="cart-container">
-          <Cart cart={this.state.cart} envelopes={envelopeDisplay} cartTotal={this.state.cartTotal}/>
+          <Cart cart={this.state.cart} envelopes={envelopeDisplay} cartTotal={this.state.cartTotal} removeFromCart={this.addToCart}/>
         </div>
 
         <div className='campaign_container' style={{display: 'flex', width: '100%', margin: '0rem auto', justifyContent: 'center'}}>
