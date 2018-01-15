@@ -1,8 +1,13 @@
 .Baselayout a {
   color: black;
+
+  /* color: white; */
 }
 
 .Baselayout a:hover {
   color: #3b653d;
-  border-bottom: 0.25rem solid #3b653d;
+  /* border-bottom: 0.25rem solid #3b653d; */
+/*
+  color: #ff533d;
+  border-bottom: 0.25rem solid #ff533d; */
 }

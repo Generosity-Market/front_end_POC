@@ -1,5 +1,5 @@
 .Cart {
-  background-color: aliceblue;
+  /* background-color: aliceblue; */
   border-radius: 3px;
   display: flex;
   justify-content: space-between;
@@ -27,6 +27,9 @@
   cursor: pointer;
   transform: scale(1.1);
   transition: color 0.3s, background-color 0.3s, transform 0.3s;
+
+  /* background-color: white;
+  color: #ff533d; */
 }
 
 .cart-items p {
@@ -34,6 +37,9 @@
   border-radius: 3px;
   padding: 0.25rem 0.3rem;
   transition: color 0.3s, background-color 0.3s, transform 0.3s;
+
+  /* background-color: transparent;
+  color: white; */
 }
 
 .clear-cart {
@@ -42,6 +48,8 @@
   color: white;
   padding: 0.5rem;
   transition: background-color 0.3s;
+
+  /* background-color: #ff533d; */
 }
 
 .clear-cart:hover {

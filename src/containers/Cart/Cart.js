@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Checkout from '../Checkout';
 import './Cart.css';
 
 export default class Cart extends Component {
@@ -29,6 +30,10 @@ export default class Cart extends Component {
              </div>
     });
 
+    let amount = this.props.cart.reduce((a,b) => a + b, 0);
+    let description = this.props.cart.map((gift, index) => {
+      return " $" + gift ;
+    })
 
     return <div className="Cart">
 
@@ -39,9 +44,16 @@ export default class Cart extends Component {
 
              <div className="cart-info">
                <h3>Total: ${cartTotal}</h3>
+
                <h4 className="clear-cart" onClick={() => {
                  this.clearCart();
                }}>Clear Cart</h4>
+
+               <Checkout
+                name={this.props.campaign}
+                description={"Donations of " + description}
+                amount={amount * 100}
+               />
              </div>
 
            </div>

@@ -40,12 +40,14 @@ export default class Campaign extends Component {
           clickedButton.style.backgroundColor = '';
           clickedButton.style.transform = '';
           clickedButton.style.color = '';
+          clickedButton.style.border = '';
           clickedButton.setAttribute('className', `envelope amount${amount}`);
         } else {
           this.state.cart.splice(index, 1);
           clickedButton.style.backgroundColor = '';
           clickedButton.style.transform = '';
           clickedButton.style.color = '';
+          clickedButton.style.border = '';
           clickedButton.setAttribute('className', `envelope amount${amount}`);
         };
     } else {
@@ -53,6 +55,9 @@ export default class Campaign extends Component {
         clickedButton.style.backgroundColor = '#3b653d';
         clickedButton.style.transform = 'scale(0.85)';
         clickedButton.style.color = 'white';
+
+        // clickedButton.style.border = "3px solid #ff533d";
+        // clickedButton.style.backgroundColor = '#ff533d';
     };
 
     function getSum(total, num) {
@@ -140,13 +145,13 @@ export default class Campaign extends Component {
         <h1 style={{textAlign: 'center'}}>{this.state.name}</h1>
         {/*<p>{this.state.name} <span style={{color: 'red'}}>id: {this.state.id}</span> details</p>*/}
 
-        <div className="campaignBanner" style={{display: 'flex', justifyContent: 'space-around', backgroundColor: '#3b653d', color: 'white', position: 'sticky', top: '0', zIndex: '1', textAlign: 'center'}}>
+        <div className="campaignBanner" style={{display: 'flex', justifyContent: 'space-around', backgroundColor: '#62727b',  color: 'white', position: 'sticky', top: '-1px', zIndex: '1', textAlign: 'center'}}>
           <p style={{letterSpacing: '0.1rem', fontSize: '20px'}}>Amount ro raise: <br/>${this.state.amount}</p>
           <p style={{letterSpacing: '0.1rem', fontSize: '20px'}}>Envelope Amount: <br/>{envelopeNumber - 1}</p>
         </div>
 
-        <div className="cart-container">
-          <Cart cart={this.state.cart} envelopes={envelopeDisplay} cartTotal={this.state.cartTotal} removeFromCart={this.addToCart}/>
+        <div className="cart-container" >
+          <Cart cart={this.state.cart} envelopes={envelopeDisplay} cartTotal={this.state.cartTotal} removeFromCart={this.addToCart} campaign={this.state.name}/>
         </div>
 
         <div className='campaign_container' style={{display: 'flex', width: '100%', margin: '0rem auto', justifyContent: 'center'}}>
