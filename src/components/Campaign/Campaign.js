@@ -3,11 +3,23 @@ import causeNames from '../../data.js';
 import './Campaign.css';
 import CampaignNav from '../CampaignNav/CampaignNav';
 import Cart from '../../containers/Cart/Cart';
+import PAYMENT_SERVER_URL from '../../constants/server';
+
+const CURRENCY = 'USD';
+
+const successPayment = data => {
+  console.log("successData: ", data);
+  alert('Payment Successful');
+};
+
+const errorPayment = data => {
+  console.log("errorData: ", data);
+  alert('Payment Error');
+};
 
 export default class Campaign extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       id: '',
       name: '',
@@ -73,9 +85,47 @@ export default class Campaign extends Component {
     // computeCartTotal(cart)
   };
 
+  onToken = (amount, description) => token => {
+    let requestBody = {
+      description: description.toString(),
+      source: token.id,
+      currency: CURRENCY,
+      amount: amount
+    };
+
+    fetch(PAYMENT_SERVER_URL, {
+      method: "POST",
+      body: JSON.stringify(requestBody),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(results => {
+       return results.json()
+    })
+    .then(successData => {
+      console.log("successData::: ",successData);
+      this.disableButtons(this.state.cart)
+    })
+    .catch(errorPayment)
+  }
+
+  disableButtons = (buttons) => {
+    console.log("buttons to disbale: ", buttons);
+    for (var i = 0; i < buttons.length; i++) {
+      console.log(buttons[i]);
+      let purchasedButton = document.querySelector(`.amount${buttons[i]}`);
+      purchasedButton.style.backgroundColor = 'lightgray';
+      purchasedButton.style.border = 'lightgray';
+      purchasedButton.style.pointerEvents = "none";
+    }
+    this.setState({
+      cart: []
+    })
+  };
+
   componentDidMount() {
     let id = this.props.match.params.id;
-
     for (var i = 0; i < causeNames.length; i++) {
       if (causeNames[i].id === Number(id)) {
         this.setState({
@@ -88,38 +138,29 @@ export default class Campaign extends Component {
   };
 
   render() {
-
     let envelopeContainer = [],
         envelopeNumber = 1,
         amount = this.state.amount;
 
     while (amount > 0) {
-
       if (envelopeNumber % 21 === 0) {
-
         envelopeContainer.push({amount: amount, envelopeNumber: envelopeNumber})
         envelopeContainer.push({name: "lineBreak"});
         amount = amount - envelopeNumber;
         envelopeNumber++;
-
       } else if ((envelopeNumber === 1) || (envelopeNumber % 21 === 1)) {
-
         envelopeContainer.push({name: 'h3', envelopeNumber: envelopeNumber});
         envelopeContainer.push({envelopeNumber: envelopeNumber, amount: amount});
         amount = amount - envelopeNumber;
         envelopeNumber++;
-
       } else {
-
         envelopeContainer.push({amount: amount, envelopeNumber: envelopeNumber})
         amount = amount - envelopeNumber;
         envelopeNumber++;
-
       };
     };
 
     let envelopeDisplay = envelopeContainer.map((cause, index) => {
-
       if (cause.name === "lineBreak") {
 
         return <div key={index} className="lineBreak" style={{flexBasis: '100%', margin: '1rem 0rem 0rem'}}>
@@ -143,7 +184,6 @@ export default class Campaign extends Component {
       <div className="Campaign">
 
         <h1 style={{textAlign: 'center'}}>{this.state.name}</h1>
-        {/*<p>{this.state.name} <span style={{color: 'red'}}>id: {this.state.id}</span> details</p>*/}
 
         <div className="campaignBanner" style={{display: 'flex', justifyContent: 'space-around', backgroundColor: '#62727b',  color: 'white', position: 'sticky', top: '-1px', zIndex: '1', textAlign: 'center'}}>
           <p style={{letterSpacing: '0.1rem', fontSize: '20px'}}>Amount ro raise: <br/>${this.state.amount}</p>
@@ -151,7 +191,8 @@ export default class Campaign extends Component {
         </div>
 
         <div className="cart-container" >
-          <Cart cart={this.state.cart} envelopes={envelopeDisplay} cartTotal={this.state.cartTotal} removeFromCart={this.addToCart} campaign={this.state.name}/>
+          <Cart cart={this.state.cart} envelopes={envelopeDisplay} cartTotal={this.state.cartTotal} removeFromCart={this.addToCart} campaign={this.state.name}
+          token={this.onToken}/>
         </div>
 
         <div className='campaign_container' style={{display: 'flex', width: '100%', margin: '0rem auto', justifyContent: 'center'}}>

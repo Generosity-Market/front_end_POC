@@ -1,5 +1,6 @@
 .Cart {
   /* background-color: aliceblue; */
+  background-color: rgba(98, 114, 123, 0.1);
   border-radius: 3px;
   display: flex;
   justify-content: space-between;
@@ -48,6 +49,7 @@
   color: white;
   padding: 0.5rem;
   transition: background-color 0.3s;
+  text-align: center;
 
   /* background-color: #ff533d; */
 }

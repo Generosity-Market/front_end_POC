@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import Checkout from '../Checkout';
 import './Cart.css';
 
+const CURRENCY = 'USD';
+
 export default class Cart extends Component {
 
-
   clearCart = () => {
-    let cart = this.props.cart.length;
+    let cart = this.props.cart;
     // reverse for loop bc we are removing items from the array
     // normal for loop skips even numbered indexes...so we skipped it
-    for (let i = cart - 1; i >= 0; i -= 1) {
+    for (let i = cart.length - 1; i >= 0; i -= 1) {
       document.querySelector(`.amount${this.props.cart[i]}`).click();
     }
   };
@@ -53,6 +54,8 @@ export default class Cart extends Component {
                 name={this.props.campaign}
                 description={"Donations of " + description}
                 amount={amount * 100}
+                currency={CURRENCY}
+                token={this.props.token(amount * 100, "Donations of " + description)}
                />
              </div>
 
