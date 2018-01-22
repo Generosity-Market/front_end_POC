@@ -12,7 +12,7 @@ class Home extends Component {
         <h1>Generosity Market</h1>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome</h1>
+          <h1 className="App-title">Welcome to Generosity Market</h1>
         </header>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.

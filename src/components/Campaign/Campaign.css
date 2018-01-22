@@ -8,6 +8,7 @@ hr {
 
 .envelope {
   border: 3px solid #254251;
+  /* background: linear-gradient(180deg, #02d9d9 25%, #9938f9, #02d9d9); */
   color: #62727b;
   border-radius: 3px;
   flex-basis: 12%;
@@ -16,6 +17,9 @@ hr {
   margin: 0.25rem;
   text-align: center;
   transition: box-shadow 0.4s, color 0.4s, background-color 0.4s, transform 0.4s;
+
+  /* border: 3px solid white;
+  color: white; */
 }
 
 .envelope:hover {
@@ -24,6 +28,9 @@ hr {
   box-shadow: 8px 11px 8px 2px rgba(100, 100, 100, 0.3);
   transform: scale(1.15);
   transition: box-shadow 0.4s, color 0.4s, background-color 0.4s, transform 0.4s;
+
+  /* background-color: white;
+  color: #9938f9; */
 }
 
 .top_button {
@@ -55,4 +62,6 @@ hr {
   color: white;
   padding: 0.75rem 0.75rem 2rem;
   transition: color 0.3s, background-color 0.3s, padding 0.3s;
+
+  /* background-color: #ff533d; */
 }

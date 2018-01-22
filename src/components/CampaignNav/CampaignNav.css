@@ -20,13 +20,19 @@
   padding: 0.3rem 0.5rem;
   text-align: right;
   transition: background-color 0.3s, color 0.3s, border-right 0.3s, transform 0.3s;
+
+  /* color: white; */
 }
 
 .campaignLinks:hover {
   background-color: rgba(220,220,220,0.5);
-  border-right: 2px solid rgba(59, 101, 61, 1);
+  /* border-right: 2px solid rgba(59, 101, 61, 1); */
   cursor: pointer;
   color: rgba(59, 101, 61, 1);
   transform: translateX(-7px);
   transition: background-color 0.3s, color 0.3s, border-right 0.3s, transform 0.3s;
+
+  /* border-right: 2px solid white; */
+  /* background-color: #ff533d;
+  border-radius: 5px; */
 }

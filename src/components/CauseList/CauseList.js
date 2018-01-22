@@ -7,15 +7,13 @@ import './CauseList.css';
 export default class CauseList extends Component {
   constructor(props) {
     super(props)
-
     this.state = {
       causes: causeNames,
       message: "there are no causes"
     }
-  }
+  };
 
   render() {
-
     let causeStyle = {
       height: '3rem',
       margin: '3rem',
@@ -31,7 +29,7 @@ export default class CauseList extends Component {
       })
     } else {
       displayedStuff = this.state.message;
-    }
+    };
 
 
     return (
